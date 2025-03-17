@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 65px;
+    background: linear-gradient(315deg,#020413, rgb(16, 59, 73) );
+    color: white;
+}
+
+h2{
+    color: bisque;
+}
+
+.bus-seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bus-seat.booked {
+    background-color: #ff0000;
+}
+    </style>
+</head>
+<body>
+    <h2>Bus Seat Booking</h2>
+
+    <div id="bus-seats"></div>
+    <br>
+    <button onclick="viewBookedSeats()">View Details</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const busSeatsContainer = document.getElementById('bus-seats');
+            const bookedSeats = new Set(); 
+            const seatPrice = 50; 
+
+            const totalRows = 4;
+            const totalColumns = 6;
+
+            for (let row = 1; row <= totalRows; row++) {
+                for (let col = 1; col <= totalColumns; col++) {
+                    const seat = document.createElement('div');
+                    seat.className = 'bus-seat';
+                    seat.setAttribute('data-row', row);
+                    seat.setAttribute('data-col', col);
+                    seat.textContent = `${row}${String.fromCharCode(64 + col)}`; // Convert column number to alphabet
+
+                    seat.addEventListener('click', toggleSeat);
+
+                    busSeatsContainer.appendChild(seat);
+                }
+                busSeatsContainer.appendChild(document.createElement('br'));
+            }
+            function toggleSeat(event) {
+                const selectedSeat = event.target;
+                const seatId = getSeatId(selectedSeat);
+
+                selectedSeat.classList.toggle('booked');
+                bookedSeats.has(seatId) ? bookedSeats.delete(seatId) : bookedSeats.add(seatId);
+            }
+
+            window.viewBookedSeats = function () {
+                const totalAmount = calculateTotalAmount();
+                const bookedSeatsArray = Array.from(bookedSeats);
+                const queryParams = `seats=${bookedSeatsArray.join(',')}&total=${totalAmount}`;
+                window.location.href = `booked-seats.html?${queryParams}`;
+            };
+
+            function calculateTotalAmount() {
+                return bookedSeats.size * seatPrice;
+            }
+
+            function getSeatId(seat) {
+                const row = seat.getAttribute('data-row');
+                const col = seat.getAttribute('data-col');
+                return `${row}-${col}`;
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background: linear-gradient(315deg,#020413, rgb(16, 59, 73) );
+        }
+        *{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+    font-family:sans-serif;
+    
+}
+
+.contact{
+    backdrop-filter: blur(0.5px);
+    background: linear-gradient(315deg,rgb(16, 59, 73),#020413 );
+    padding:0px 0px 0px 0px;
+    text-align:center;
+    margin:30px 90px;
+    box-shadow:3px 3px 3px 3px rgba(148, 143, 143, 0.2);
+}
+.container{
+    max-width:200px;
+    margin:0 auto;
+   
+}
+.container h2{
+    font-size: 16px;
+    padding: 18px 0 0 0;
+    margin-bottom: 20px;
+    color:white;
+}
+.contact-wrapper{
+    display:flex;
+    grid-template-columns: repeat(2,1 fr);
+    justify-content: center;
+    grid-gap:70px;
+}
+.contact-form{
+    text-align: left;
+}
+.contact-form h3{
+    font-size:9px;
+    margin-bottom:15px;
+    color:white;
+}
+.form-group{
+    font-size: 2px;
+    margin-bottom: 10px;
+}
+input,textarea{
+    width: 100px;
+    padding:3px;
+    border-radius: 8px;
+    border:2cm;
+    border-color:rgb(2, 13, 13) ;
+    background-color: #f8f9fa;
+    color:#333;
+}
+input:focus,
+textarea:focus{
+    outline:auto;
+    box-shadow:0px 0.5px 0.5px 0px #cbddfc;
+}
+button{
+    display:inline-block;
+    size: 2px;
+    padding:2px 2px;
+    background:linear-gradient(315deg,rgb(16, 59, 73),#020413 );;
+    color:#fff;
+    border:1.2px solid #000;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+button:hover{
+    background:linear-gradient(315deg,#020413,rgb(16, 59, 73) );
+}
+.contact-info{
+    font-size: 10px;
+    text-align: left;
+}
+.contact-info h3{
+    font-size: 10px;
+    justify-content:flex-end;
+    margin-bottom: 7px;
+    color: white;
+}
+.contact-info p{
+    font-size: 5.3px;
+    
+    margin-bottom:8px;
+    color:bisque;
+}
+.contact-info i{
+    color:rgb(199, 211, 216);
+    margin-right: 10px;
+}
+.l{
+    font-size: 7px;
+    justify-content: space-evenly;
+}
+    </style>
+</head>
+<body>
+    <section class="contact">
+        <div class="container">
+    
+            <h2>Contact us</h2>
+    
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <h3>Send us a message</h3>
+                    <form action="">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder=" Your Name" style="font-size: 6px;">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder=" Your Email" style="font-size: 6px;">
+                        </div>
+                        <div class="form-group">
+                           <textarea name="message" placeholder=" Your Message" style="font-size: 6px;"></textarea>></textarea>
+                        </div>
+           <a href="./index.html"  style="text-decoration: none;"><button  type="submit" style="font-size: 8px;">Send</button> </a> 
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-phone"></i>+91 981762534</p>
+                    <p><i class="fas fa-envelope"></i>info@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i>city,district,state</p>
+                </div>
+            </div>
+        </div>
+        <div class="footlinks">
+            <h6 style="color: white;margin-bottom: 5px;">Quick Links</h6>
+    
+         <div class="l">
+           
+               <a style="color: chocolate;text-decoration: none;"  href="./index.html">Home</a>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <a style="color: chocolate;text-decoration: none;" href="./aboutus.html">About Us</a>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <a style="color: chocolate;text-decoration: none;" href="./contactus.html">Contact Us</a>
+          
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <style>
+    body{
+        background: linear-gradient(315deg,#020413, rgb(16, 59, 73) );
+         color: white;
+         text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 0x;
+    }
+    form {
+          margin-left: 120px;
+          width:350px;
+          height:275px;
+          padding-left: 70px;
+          padding-top: 10px;
+          display: inline-block;
+          border: 2.5px solid #1d1919;
+          box-sizing: border-box;
+          border-radius: 5px;
+          justify-content: center;
+          text-align: center;
+          backdrop-filter: blur(0.5px);
+          margin-right: 110px;
+          box-sizing: border-box;
+          text-align: left;
+}
+h1{
+  padding-top: -20px;
+}
+.l{
+          font-size: smaller;
+          width: auto;
+          border-radius:5px;
+         color: white;
+    margin-left: 60px;
+          background: linear-gradient(315deg, rgb(12, 10, 11), rgb(17, 65, 80));
+        }
+.l:hover {
+         background: linear-gradient(315deg, rgb(16, 59, 73),#020413 );
+         color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Booking Form</h1>
+
+  <form id="bookingForm" onsubmit="return false;">
+   Name:
+    <input  style="font-size: xx-small;" type="text" id="name" required>
+    <br>
+    <br>
+    Phone number:
+    <input  style="width: 90px;" type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+    <br>
+    <br>
+    Date:
+    <input  style="width: 90px;" type="date" id="date" required>
+<br>
+<br>
+    Locations:
+    <select  style="width: 90px;" id="location">
+      <option value="0"></option>
+      <option value="0">Tirupati</option>
+      <option value="0">Vizag</option>
+      <option value="0">Araku</option>
+      <option value="0">Munnar</option>
+      <option value="0">Kochi</option>
+      <option value="0">Padhmanabha Swamy Temple</option>
+      <option value="0">Charminar</option>
+      <option value="0">Laknavaram</option>
+      <option value="0">Birlamandir</option>
+      
+    </select>
+    <br>
+     <br>
+   Hotel Services:
+    <select  style="width: 90px;" id="hotelServices">
+      <option value="0"></option>
+      <option value="9999">Bronze - $9999</option>
+      <option value="19999">Silver - $19999</option>
+      <option value="29999">Gold - $29999</option>
+      <option value="39999">Platinum - $39999</option>
+    </select>
+<br>
+<br>
+    Travel Services:
+    <select style="width: 90px;" id="travelServices">
+      <option value="0"></option>
+      <option value="90000">Bus</option>
+    </select>
+    <br>
+    <br>
+    <button type="button" onclick="bookNow()" class="l">Book Now</button>
+  </form>
+
+  <script>
+    
+    function bookNow() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const date = document.getElementById('date').value;
+      const location = document.getElementById('location').options[document.getElementById('location').selectedIndex].innerText;
+      const hotelServices = document.getElementById('hotelServices').options[document.getElementById('hotelServices').selectedIndex].innerText;
+      const travelServices = document.getElementById('travelServices').options[document.getElementById('travelServices').selectedIndex].innerText;
+      // Redirect to a new page with selected details
+      const queryString = `?name=${name}&phone=${phone}&date=${date}&location=${location}&hotelServices=${hotelServices}&travelServices=${travelServices}`;
+      window.location.href = `bus-details.html${queryString}`;
+    }
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmation</title>
+  <style>
+    body{
+      background: linear-gradient(315deg,#020413, rgb(16, 59, 73) );
+         color: white;
+         text-align: center;
+         justify-content: center;
+         padding: 0px;
+         margin: 0px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Booking Confirmation</h1>
+
+  <p>Name: <span id="confirmName"></span></p>
+  <p>Phone Number: <span id="confirmPhone"></span></p>
+  <p>Number of Persons: <span id="confirmPersons"></span></p>
+  <p>Date: <span id="confirmDate"></span></p>
+  <p>Location : <span id="confirmLocation"></span></p>
+  <p>Hotel Services Total: $<span id="confirmHotelServicesTotal"></span></p>
+  <p>Travel Services Total: $<span id="confirmTravelServicesTotal"></span></p>
+  <p>Total Amount: $<span id="totalAmount"></span></p>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+  
+    document.getElementById('confirmName').innerText = urlParams.get('name') || '';
+    document.getElementById('confirmPhone').innerText = urlParams.get('phone') || '';
+    document.getElementById('confirmPersons').innerText = urlParams.get('persons') || '';
+    document.getElementById('confirmDate').innerText = urlParams.get('date') || '';
+    document.getElementById('confirmLocation').innerText = urlParams.get('location') || '0.00';
+    document.getElementById('confirmHotelServicesTotal').innerText = urlParams.get('hotelServices') || '0.00';
+    document.getElementById('confirmTravelServicesTotal').innerText =urlParams.get('travelServices') || '0.00';
+   
+  
+    document.getElementById('totalAmount').innerText = urlParams.get('totalAmount') || '79,999';
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booked Seats Details</title>
+</head>
+<style>
+body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; margin: 195px; 
+    background: linear-gradient(315deg,#020413, rgb(16, 59, 73) ); 
+    color: white; justify-content: center; padding: 0px; 
+    margin-top: 280px; 
+    height: 77px;
+    } 
+    h2{ 
+        margin-top:-190px ; 
+        color: bisque; 
+        } 
+    .l{ 
+        font-size: smaller; 
+         width: auto; 
+         height: 30px; 
+         border: 2px; 
+         box-sizing: border-box; 
+         border-radius:5px; 
+         color: white; 
+         margin-left: 60px; 
+         background: linear-gradient(315deg, rgb(12, 10, 11), rgb(17, 65, 80));
+         }
+    .l:hover {
+         background: linear-gradient(315deg, rgb(16, 59, 73),#020413 ); 
+         color: white; 
+         } 
+</style>
+<body>
+    <h2>Booked Seats Details</h2>
+
+    <div id="details"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const detailsContainer = document.getElementById('details');
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookedSeats = urlParams.get('seats').split(',');
+            const totalAmount = urlParams.get('total');
+
+            const detailsText = `
+                <p>Booked Seats: ${bookedSeats.join(', ')}</p>
+                <p>Total Amount: $${totalAmount}</p>
+            `;
+
+            detailsContainer.innerHTML = detailsText;
+        });
+    </script>
+</body>
+</html>
+

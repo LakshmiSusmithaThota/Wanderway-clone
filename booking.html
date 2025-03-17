@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <style>
+    body{
+        background: linear-gradient(315deg,#020413, rgb(16, 59, 73) );
+         color: white;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    form {
+       margin-left: 200px;
+    width:250px;
+          height:550px;
+          padding-left: 20px;
+          padding-top: 5px;
+          display: inline-block;
+          border: 2.5px solid #1d1919;
+          box-sizing: border-box;
+          border-radius: 5px;
+          justify-content: center;
+          backdrop-filter: blur(0.5px);
+   margin-right: 110px;
+  
+ box-sizing: border-box;
+  text-align: left;
+}
+.l{
+          font-size: smaller;
+          width: auto;
+          border-radius:5px;
+         color: white;
+    margin-left: 60px;
+          background: linear-gradient(315deg, rgb(12, 10, 11), rgb(17, 65, 80));
+        }
+.l:hover {
+         background: linear-gradient(315deg, rgb(16, 59, 73),#020413 );
+         color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Booking Form</h1>
+
+  <form id="bookingForm" onsubmit="return false;">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="phone">Phone number:</label>
+    <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+    <label for="persons">Number of Persons:</label>
+    <input type="number" id="persons" min="1" required>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" required>
+<br>
+<br>
+    <label for="location">Locations:</label>
+    <select id="location">
+      <option value="0"></option>
+      <option value="0">Tirupati</option>
+      <option value="0">Vizag</option>
+      <option value="0">Araku</option>
+      <option value="0">Munnar</option>
+      <option value="0">Kochi</option>
+      <option value="0">Padhmanabha Swamy Temple</option>
+      <option value="0">Charminar</option>
+      <option value="0">Laknavaram</option>
+      <option value="0">Birlamandir</option>
+      
+    </select>
+    <br>
+     <br>
+    <label>Hotel Services:</label>
+    <select id="hotelServices">
+      <option value="0"></option>
+      <option value="9999">Bronze - $9999</option>
+      <option value="19999">Silver - $19999</option>
+      <option value="29999">Gold - $29999</option>
+      <option value="39999">Platinum - $39999</option>
+    </select>
+<br>
+<br>
+    <label>Travel Services:</label>
+    <select id="travelServices">
+      <option value="0"></option>
+     <br>
+      <option value="20000">Tempo - $20000</option>
+      <option value="90000">Caravan - $90000</option>
+    </select>
+    <br>
+    <br>
+    <button type="button" onclick="calculateTotal()">Calculate Total</button>
+    <p>Total Amount: $<span id="totalAmount"></span></p>
+    <button type="button" onclick="bookNow()" class="l">Book Now</button>
+  </form>
+
+  <script>
+    function calculateTotal() {
+      const persons = parseInt(document.getElementById('persons').value);
+      let totalAmount = 0;
+
+      const hotelServices = parseFloat(document.getElementById('hotelServices').value);
+      const travelService = parseFloat(document.getElementById('travelServices').value);
+
+     totalAmount = (hotelServices + travelService ) * persons;
+
+      document.getElementById('totalAmount').innerText = totalAmount.toFixed(1);
+    }
+
+    function bookNow() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const persons = document.getElementById('persons').value;
+      const date = document.getElementById('date').value;
+      const location = document.getElementById('location').options[document.getElementById('location').selectedIndex].innerText;
+      const hotelServices = document.getElementById('hotelServices').options[document.getElementById('hotelServices').selectedIndex].innerText;
+      const travelServices = document.getElementById('travelServices').options[document.getElementById('travelServices').selectedIndex].innerText;
+
+      // Redirect to a new page with selected details
+      const queryString = `?name=${name}&phone=${phone}&persons=${persons}&date=${date}&location=${location}&hotelServices=${hotelServices}&travelServices=${travelServices}`;
+     window.alert("Booked successfully");
+      window.location.href = `confirmation.html${queryString}`;
+    }
+  </script>
+
+</body>
+</html>

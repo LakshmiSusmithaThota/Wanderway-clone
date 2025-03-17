@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            
+            padding: 0px 35px 0px 0px;
+            background-image: url('https://imgs.search.brave.com/soTKvdXktxA8r2k76gTLtaTCqRhoICrJ-Dj0nSp8kuo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2Y5LzU5/LzRiL2Y5NTk0YjNj/ZmJiODU5NWQ5MWE0/MDkxZmU5YjNjZjAy/LmpwZw');
+            background-size: 100% 245px; 
+            text-align: center;
+            justify-content: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            
+        }
+        .b{
+            width: fit-content;
+            height: fit-content;
+        }
+        form{   
+          width:150px;
+          height:150px;
+          padding: 5px 1px 40px 1px;
+          margin: 35px 25px 35px 38px;
+          display: inline-block;
+          border: 2.5px solid #1d1919;
+          box-sizing: border-box;
+          border-radius: 5px;
+          justify-content: center;
+          backdrop-filter: blur(0.5px);
+        }
+        #myform{
+            color: white;
+            font-size: x-small;
+            text-align: center;  
+            font-family: 'Ultra', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #t1{
+          font-size: smaller;
+        }
+        #t2{
+          font-size: smaller;
+        }
+        .l{
+          font-size: smaller;
+          width: auto;
+          border-radius:5px;
+         color: white;
+    
+          background: linear-gradient(315deg,  rgb(17, 65, 80),rgb(12, 10, 11));
+        }
+        .l:hover {
+         background: linear-gradient(315deg,#020413, rgb(16, 59, 73) );
+         color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="class">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <form id="myform">  
+            <p><b>Login/Tour&Travel</b></p>
+            <i class="fa-solid fa-user fa-beat"></i>
+            <input type="text" id="t1" placeholder="Username">
+            <br>
+            <br>
+            <i class="fa-solid fa-key fa-beat"></i>
+            <input type="password" id="t2" placeholder="password"> 
+            <br>
+            <br>
+            <p id="results"></p>
+            <button class="l" type="clear"><b>Login</b></button>
+            </div>
+        </form> 
+        <script>
+            $("#myform").submit(function(e)
+            {
+              e.preventDefault();
+              uname=$("#t1").val();
+              upass=$("#t2").val();
+              names=["Sarathsir","Harsha","Susmitha","Jyothi","Sailaja","Dinesh"];
+              passwords=["Sarath@1","harsha@66","susmitha@60","jyothi@3","sailaja@35","dinesh@15"];
+              flag=0;
+              if(uname.length<1)
+              {
+                window.alert("UserName field is required");
+              }
+              if(uname.length<6 || uname.length>12)
+              {
+                window.alert("UserName Must be 6 to 12 Charaters");
+              }
+              else
+              {
+                var regEx = /^[A-Za-z0-9]+$/;
+                var validEmail = regEx.test(uname);
+                if (!validEmail)
+                        {
+                            window.alert('<span>user name must be characters</span>');
+                        }
+              }
+              if(upass.length<1)
+              {
+                window.alert("Password field is required");
+              }
+              if(upass.length<6 || upass.length>12)
+              {
+                window.alert("Password Must be 6 to 12 Charaters");
+              }
+              if((uname.length<6 || uname.length>12) &&
+                 (upass.length<6 || upass.length>12))
+              {
+                alert("Please Enter Both Username and Password");
+              }
+              else
+              {
+               for(i in names)
+               {
+                if(uname==names[i] && upass==passwords[i])
+                {
+                  flag=flag+1;      
+                }
+               }
+               if(flag==0)
+                {
+                 $("#results").html("<p style=color:black>Wrong Details Entered</p>");
+                }
+                else
+                {
+                $("#results").html("");
+                location.replace("index.html");
+                }
+                
+              }
+            });
+            </script>
+</body>
+</html>

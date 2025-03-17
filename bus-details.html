@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmation</title>
+  <style>
+    body{
+      background: linear-gradient(315deg,#020413, rgb(16, 59, 73) );
+         color: white;
+         text-align: center;
+         justify-content: center;
+         padding: 0px;
+         margin-bottom: 40px;
+    }
+    .l{
+          font-size: smaller;
+          width: auto;
+          height: 30px;
+          border: 2px;
+          box-sizing: border-box;
+          border-radius:5px;
+         color: white;
+          margin-left: 60px;
+          background: linear-gradient(315deg, rgb(12, 10, 11), rgb(17, 65, 80));
+        }
+.l:hover {
+         background: linear-gradient(315deg, rgb(16, 59, 73),#020413 );
+         color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Booking Confirmation</h1>
+
+  <p>Name: <span id="confirmName"></span></p>
+  <p>Phone Number: <span id="confirmPhone"></span></p>
+  <p>Date: <span id="confirmDate"></span></p>
+  <p>Location : <span id="confirmLocation"></span></p>
+  <p>Hotel Services Total: $<span id="confirmHotelServicesTotal"></span></p>
+  <p>Travel Services Total: $<span id="confirmTravelServicesTotal"></span></p>
+  <a href="busseats.html"><button type="button"  class="l">Select Bus Seats</button></a>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('confirmName').innerText = urlParams.get('name');
+    document.getElementById('confirmPhone').innerText = urlParams.get('phone') || '';
+    document.getElementById('confirmDate').innerText = urlParams.get('date') || '';
+    document.getElementById('confirmLocation').innerText = urlParams.get('location') || '0.00';
+    document.getElementById('confirmHotelServicesTotal').innerText = urlParams.get('hotelServices') || '0.00';
+    document.getElementById('confirmTravelServicesTotal').innerText =urlParams.get('travelServices') || '0.00';
+    
+  </script>
+</body>
+</html>
